@@ -5,6 +5,7 @@ public class Main {
     public static void main(String[] args) {
         printInfoLeapYear(2023);
         printInfoOsMadeYear(0, 2024 );
+        printInfoDeliveryDistance(-101);
     }
 
     public static void printInfoLeapYear(int year) {
@@ -33,5 +34,29 @@ public class Main {
         int currentYear = LocalDate.now().getYear();
         String result = "Нужно установить " + (deviceYear < currentYear ? " облегченную версию для " : " версию для ") + (clientOS == 0 ? "iOS" : "Android");
         System.out.println(result);
+    }
+
+    public static int calculateDeliveryDistance(int deliveryDistance) {
+        System.out.println("Задача 3");
+
+        if (deliveryDistance < 0 || deliveryDistance > 100) {
+            return -1;
+        }
+        if (deliveryDistance < 20) {
+            return 1;
+        } else if (deliveryDistance < 60) {
+            return 2;
+        } else {
+            return 3;
+        }
+    }
+
+    public static void printInfoDeliveryDistance(int deliveryDistance) {
+        int deliveryDays = calculateDeliveryDistance(deliveryDistance);
+        if (deliveryDays != -1) {
+            System.out.println("Потребуется дней: " + deliveryDays);
+        } else {
+            System.out.println("Доставка карты осуществляется на растоянии 100 км.");
+        }
     }
 }
